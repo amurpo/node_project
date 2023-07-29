@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker-agent'
+    }
 
     stages {
         stage('Checkout') {
@@ -13,10 +15,7 @@ pipeline {
             steps {
                 // Build the Docker image and tag it with a version number
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        def dockerImage = docker.build("your_dockerhub_username/node_project:${env.BUILD_NUMBER}")
-                        dockerImage.push()
-                    }
+                    docker.build("amurpo/node_project:${env.BUILD_NUMBER}")
                 }
             }
         }
