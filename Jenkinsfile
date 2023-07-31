@@ -1,5 +1,5 @@
 pipeline {
-    // No agent specified, so it runs on the Jenkins master by default
+    agent any
 
     environment {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
