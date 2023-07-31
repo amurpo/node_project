@@ -1,8 +1,4 @@
 pipeline {
-    agent {
-        label 'docker-agent'
-    }
-
     environment {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_IMAGE_TAG = "${env.BUILD_NUMBER}"
