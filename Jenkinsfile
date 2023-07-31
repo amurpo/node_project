@@ -1,4 +1,6 @@
 pipeline {
+    // No agent specified, so it runs on the Jenkins master by default
+
     environment {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_IMAGE_TAG = "${env.BUILD_NUMBER}"
