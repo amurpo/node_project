@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
+        DOCKER_HUB_CREDENTIALS = 'dockerhub'
         DOCKER_IMAGE_TAG = "${env.BUILD_NUMBER}"
         DOCKER_IMAGE_NAME = "amurpo/node_project"
     }
