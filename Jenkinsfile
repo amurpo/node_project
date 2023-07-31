@@ -17,23 +17,15 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build and Push Docker Image') {
             steps {
                 // Authenticate with Docker Hub using credentials
                 withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    // Log in to Docker Hub
                     sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
 
                     // Build the Docker image and tag it with the version number
                     sh "docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG ."
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                // Authenticate with Docker Hub using credentials again (just in case)
-                withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
 
                     // Push the Docker image to Docker Hub
                     sh "docker push $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG"
