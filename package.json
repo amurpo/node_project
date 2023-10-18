@@ -10,8 +10,7 @@
     "express": "^4.16.4"
   },
   "scripts": {
-    "start": "node app.js",  // Your start script
-    "build": "cp -r * dist/"  // Copy all files to the 'dist' directory
+    "start": "node app.js",
+    "build": "cp -r * dist/"
   }
 }
-
