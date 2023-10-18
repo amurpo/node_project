@@ -5,12 +5,13 @@
   "author": "Sammy the Shark <sammy@example.com>",
   "license": "MIT",
   "main": "app.js",
-  "keywords": [
-    "nodejs",
-    "bootstrap",
-    "express"
-  ],
+  "keywords": ["nodejs", "bootstrap", "express"],
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "node app.js",  // Your start script
+    "build": "cp -r * dist/"  // Copy all files to the 'dist' directory
   }
 }
+
