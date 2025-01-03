@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build and Push Docker Image') {
             steps {
-                // Authenticate with Docker Hub using credentials
+                // Authenticate with Docker Hub using credentials olaaaaaaaaaaaaaaaaaaa
                 withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     // Log in to Docker Hub
                     sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
